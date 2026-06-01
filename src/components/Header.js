@@ -4,14 +4,21 @@ import {
   FaSearch,
   FaMicrophone
 } from "react-icons/fa";
+import { useDispatch } from "react-redux";
+import { toggleMenu } from "../utils/appSlice";
 
 const Header = () => {
+    const dispatch = useDispatch()
+    const manageTogglt =()=>{
+        dispatch(toggleMenu())
+    }
   return (
     <header className="flex items-center justify-between px-5 py-3 shadow-sm">
 
       {/* Left */}
       <div className="flex items-center gap-5">
-        <FaBars size={24} />
+        
+        <FaBars size={24} onClick={()=> manageTogglt()} />
 
         <img
           src="https://upload.wikimedia.org/wikipedia/commons/e/ef/Youtube_logo.png"
