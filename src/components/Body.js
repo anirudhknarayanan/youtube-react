@@ -3,7 +3,7 @@ import MainContainer from "./MainContainer"
 import SideBar from "./SideBar"
 const Body = ()=>{
     return(
-        <div className="flex grid-flow-col">
+        <div className="flex grid-flow-col overflow-x-hidden">
          <SideBar/>
          <Outlet></Outlet>
 

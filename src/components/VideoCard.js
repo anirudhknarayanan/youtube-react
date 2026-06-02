@@ -6,7 +6,7 @@ const VideoCard = ({ info }) => {
   const { snippet, statistics } = info;
 
   return (
-    <div className="w-[360px] p-2 cursor-pointer hover:scale-[1.02] transition-all duration-200">
+    <div className="w-full p-2 cursor-pointer hover:scale-[1.02] transition-all duration-200">
       {/* Thumbnail */}
       <img
         className="w-full rounded-2xl"
