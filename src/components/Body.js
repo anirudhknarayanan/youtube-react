@@ -1,6 +1,10 @@
+import MainContainer from "./MainContainer"
+import SideBar from "./SideBar"
 const Body = ()=>{
     return(
-        <div>
+        <div className="flex grid-flow-col">
+         <SideBar/>
+         <MainContainer/>
 
         </div>
     )
