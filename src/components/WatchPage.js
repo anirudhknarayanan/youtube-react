@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import { useSearchParams } from "react-router-dom";
 import { closeMenu } from "../utils/appSlice";
 import Comments from "./Comments";
+import LiveChatContainer from "./LiveChatContainer";
 
 const WatchPage = () => {
   const dispatch = useDispatch();
@@ -16,7 +17,7 @@ const WatchPage = () => {
 
   return (
     <div className="flex mt-20 px-6 gap-6">
-      {/* Main Content */}
+      {/* Left Section */}
       <div className="flex-1">
         {/* Video */}
         <div className="aspect-video">
@@ -33,7 +34,7 @@ const WatchPage = () => {
           Building a YouTube Clone with React
         </h1>
 
-        {/* Channel + Actions */}
+        {/* Channel Info */}
         <div className="flex justify-between items-center mt-4">
           <div className="flex items-center gap-4">
             <img
@@ -44,9 +45,7 @@ const WatchPage = () => {
 
             <div>
               <h2 className="font-semibold">Code With React</h2>
-              <p className="text-sm text-gray-500">
-                100K subscribers
-              </p>
+              <p className="text-sm text-gray-500">100K subscribers</p>
             </div>
 
             <button className="bg-black text-white px-4 py-2 rounded-full">
@@ -68,42 +67,49 @@ const WatchPage = () => {
         {/* Description */}
         <div className="bg-gray-100 p-4 rounded-xl mt-4">
           <p>
-            Learn how to build a YouTube clone using React,
-            Redux Toolkit, Tailwind CSS, and YouTube APIs.
+            Learn how to build a YouTube clone using React, Redux Toolkit,
+            Tailwind CSS, and YouTube APIs.
           </p>
         </div>
 
         {/* Comments */}
-        <Comments/>
-       
+        <Comments />
       </div>
 
-      {/* Sidebar Recommendations */}
-      <div className="w-96 hidden lg:block">
-        {[1, 2, 3, 4, 5, 6].map((item) => (
-          <div
-            key={item}
-            className="flex gap-3 mb-4 cursor-pointer"
-          >
-            <img
-              src={`https://picsum.photos/200/120?random=${item}`}
-              alt=""
-              className="rounded-lg"
-            />
+      {/* Right Sidebar */}
+      <div className="w-[380px] flex flex-col gap-4">
+        {/* Live Chat */}
+        
+           <LiveChatContainer/>
+        {/* Recommendations */}
+        <div>
+          {[1, 2, 3, 4, 5, 6].map((item) => (
+            <div
+              key={item}
+              className="flex gap-3 mb-4 cursor-pointer hover:bg-gray-100 p-2 rounded-lg"
+            >
+              <img
+                src={`https://picsum.photos/200/120?random=${item}`}
+                alt="thumbnail"
+                className="w-40 h-24 rounded-lg object-cover"
+              />
 
-            <div>
-              <h3 className="font-medium text-sm">
-                React Tutorial Part {item}
-              </h3>
-              <p className="text-xs text-gray-500">
-                Code With React
-              </p>
-              <p className="text-xs text-gray-500">
-                50K views
-              </p>
+              <div>
+                <h3 className="font-medium text-sm">
+                  React Tutorial Part {item}
+                </h3>
+
+                <p className="text-xs text-gray-500">
+                  Code With React
+                </p>
+
+                <p className="text-xs text-gray-500">
+                  50K views
+                </p>
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </div>
   );
